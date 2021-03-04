@@ -35,8 +35,6 @@ Given the root to a binary tree, return its bottom view.
 using namespace std;
 
 vector<int> bottomView(TreeNode* root) {
-    vector<int> res;
-
     queue<pair<TreeNode*, int>> q;
     q.push({root, 0});
     map<int, int> map;
@@ -52,8 +50,11 @@ vector<int> bottomView(TreeNode* root) {
             q.push({p.first->right, p.second + 1});
         }
     }
+
+    vector<int> res(map.size());
+    int k = 0;
     for (auto i : map) {
-        res.push_back(i.second);
+        res[k++] = i.second;
     }
     return res;
 }
