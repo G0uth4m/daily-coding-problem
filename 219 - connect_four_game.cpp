@@ -126,7 +126,7 @@ private:
         return res - 1 == 4;
     }
 
-    void clearScreen() {
+    void __clear_screen() {
         cout << "\033[2J\033[1;1H";
     }
 
@@ -180,7 +180,7 @@ public:
                 try {
                     dropDisc(red, col);
                 } catch (const char* msg) {
-                    clearScreen();
+                    __clear_screen();
                     cout << msg << "\n\n";
                     continue;
                 }
@@ -192,14 +192,14 @@ public:
                 try {
                     dropDisc(black, col);
                 } catch (const char* msg) {
-                    clearScreen();
+                    __clear_screen();
                     cout << msg << "\n\n";
                     continue;
                 }
                 isRedTurn = true;
             }
             cout << endl;
-            clearScreen();
+            __clear_screen();
         }
         cout << "[+] Game Over!\n\n";
         __print_grid();
